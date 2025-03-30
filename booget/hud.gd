@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 signal add_transaction(transaction);
+signal end_game();
 
 func _ready():
 	$MarginContainer/VBoxContainer/LB.show();
@@ -18,3 +19,6 @@ func _on_add_transaction_pressed():
 	transaction.transaction_amount = 10;
 	transaction.transaction_category = Main.BudgetCategory.LIVING;
 	add_transaction.emit(transaction);
+
+func _on_exit_pressed() -> void:
+	end_game.emit();

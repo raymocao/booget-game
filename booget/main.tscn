@@ -18,3 +18,4 @@ script = ExtResource("3_1bvp3")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="add_transaction" from="HUD" to="." method="_on_hud_add_transaction"]
+[connection signal="end_game" from="HUD" to="." method="_on_hud_end_game"]

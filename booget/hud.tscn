@@ -21,10 +21,12 @@ layout_mode = 2
 
 [node name="LB" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "Living Budget Remaining: "
 
 [node name="FB" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_horizontal = 0
 text = "Fun Budget Remaining: "
 
 [node name="Add Transaction" type="Button" parent="MarginContainer"]
@@ -34,4 +36,11 @@ size_flags_vertical = 8
 text = "Add Transaction
 "
 
+[node name="Exit" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Exit"
+
 [connection signal="pressed" from="MarginContainer/Add Transaction" to="." method="_on_add_transaction_pressed"]
+[connection signal="pressed" from="MarginContainer/Exit" to="." method="_on_exit_pressed"]

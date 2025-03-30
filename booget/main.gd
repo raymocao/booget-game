@@ -16,3 +16,7 @@ func _on_hud_add_transaction(transaction) -> void:
 func start_game():
 	$HUD.update_lb($Player.living_budget_remaining);
 	$HUD.update_fb($Player.fun_budget_remaining);
+
+func _on_hud_end_game() -> void:
+	#save game
+	get_tree().quit();
