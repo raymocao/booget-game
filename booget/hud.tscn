@@ -1,8 +1,9 @@
 [gd_scene load_steps=2 format=3 uid="uid://7n2d3r8r2cg7"]
 
-[ext_resource type="Script" uid="uid://cpq0s000v5hyw" path="res://add_transaction.gd" id="1_37p78"]
+[ext_resource type="Script" uid="uid://h2qd0obe8jcf" path="res://hud.gd" id="1_64ctp"]
 
 [node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_64ctp")
 
 [node name="LB" type="Label" parent="."]
 offset_right = 200.0
@@ -33,4 +34,5 @@ grow_horizontal = 2
 grow_vertical = 0
 text = "Add Transaction
 "
-script = ExtResource("1_37p78")
+
+[connection signal="pressed" from="Add Transaction" to="." method="_on_add_transaction_pressed"]

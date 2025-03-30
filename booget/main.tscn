@@ -1,8 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3gmndtlcxk5t"]
+[gd_scene load_steps=5 format=3 uid="uid://b3gmndtlcxk5t"]
 
+[ext_resource type="Script" uid="uid://bxo45f0o54pm7" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://dh26juk1xyje2" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://7n2d3r8r2cg7" path="res://hud.tscn" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://cp44qnsdustd" path="res://transaction.gd" id="3_1bvp3"]
 
 [node name="Main" type="Node"]
+script = ExtResource("1_h2yge")
 
 [node name="Player" type="Node" parent="."]
 script = ExtResource("1_ig7tw")
+
+[node name="Transaction" type="Node" parent="."]
+script = ExtResource("3_1bvp3")
+
+[node name="HUD" parent="." instance=ExtResource("2_0xm2m")]
+
+[connection signal="ready" from="." to="." method="_on_ready"]
+[connection signal="add_transaction" from="HUD" to="." method="_on_hud_add_transaction"]
