@@ -5,6 +5,7 @@ extends Node
 
 var living_budget_remaining = living_budget;
 var fun_budget_remaining = fun_budget;
+var fun_pool = 0;
 
 func add_transaction(amount, category):
 	if (category == Main.BudgetCategory.LIVING):

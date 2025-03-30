@@ -5,34 +5,33 @@
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
 
-[node name="LB" type="Label" parent="."]
-offset_right = 200.0
-offset_bottom = 23.0
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 12
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="LB" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "Living Budget Remaining: "
 
-[node name="FB" type="Label" parent="."]
-anchors_preset = -1
-anchor_top = 0.039
-anchor_bottom = 0.039
-offset_top = -0.272001
-offset_right = 183.0
-offset_bottom = 22.728
-grow_vertical = 2
+[node name="FB" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
 text = "Fun Budget Remaining: "
 
-[node name="Add Transaction" type="Button" parent="."]
-anchors_preset = -1
-anchor_left = 0.5
-anchor_top = 0.873
-anchor_right = 0.5
-anchor_bottom = 0.873
-offset_left = -73.0
-offset_top = -39.704
-offset_right = 77.0
-offset_bottom = 0.295959
-grow_horizontal = 2
-grow_vertical = 0
+[node name="Add Transaction" type="Button" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 text = "Add Transaction
 "
 
-[connection signal="pressed" from="Add Transaction" to="." method="_on_add_transaction_pressed"]
+[connection signal="pressed" from="MarginContainer/Add Transaction" to="." method="_on_add_transaction_pressed"]

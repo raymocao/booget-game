@@ -2,19 +2,16 @@ extends CanvasLayer
 
 signal add_transaction(transaction);
 
-func show_lb():
-	$LB.text = 0;
-	$LB.show();
-
-func show_fb():
-	$FB.text = 0;
-	$FB.show();
+func _ready():
+	$MarginContainer/VBoxContainer/LB.show();
+	$MarginContainer/VBoxContainer/FB.show();
+	$MarginContainer/"Add Transaction".show();
 
 func update_lb(num):
-	$LB.text = "Living Budget Remaining: " + str(num);
+	$MarginContainer/VBoxContainer/LB.text = "Living Budget Remaining: " + str(num);
 
 func update_fb(num):
-	$FB.text = "Fun Budget Remaining: " + str(num);
+	$MarginContainer/VBoxContainer/FB.text = "Fun Budget Remaining: " + str(num);
 
 func _on_add_transaction_pressed():
 	var transaction = Transaction.new();
