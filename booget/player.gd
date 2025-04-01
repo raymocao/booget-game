@@ -1,7 +1,7 @@
 extends Node
 
-@export var living_budget = 1500;
-@export var fun_budget = 1500;
+@export var living_budget = 1500.00;
+@export var fun_budget = 1500.00;
 
 var living_budget_remaining = living_budget;
 var fun_budget_remaining = fun_budget;
