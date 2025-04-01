@@ -12,3 +12,11 @@ func add_transaction(amount, category):
 		living_budget_remaining -= amount;
 	elif (category == Main.BudgetCategory.FUN):
 		fun_budget_remaining -= amount;
+	
+	if (living_budget_remaining < 0):
+		fun_budget_remaining += living_budget_remaining;
+		living_budget_remaining = 0;
+	
+	if (fun_budget_remaining < 0):
+		fun_pool += fun_budget_remaining;
+		fun_budget_remaining = 0;
