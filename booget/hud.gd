@@ -25,13 +25,19 @@ func populate_categories():
 		$MenuMarginContainer/AddTransactionContainer/VBoxContainer/CategoryOptionButton.add_item(c);
 
 func update_lb(num):
-	$MainMarginContainer/BudgetLabels/LB.text = "Living Budget Remaining: $" + str("%0.2f" % num);
+	var s = str("%0.2f" % num);
+	$MainMarginContainer/BudgetLabels/LB.text = "Living Budget Remaining: $" + s;
+	$MenuMarginContainer/AddTransactionContainer/LabelContainer/ATLB.text = "Living Budget Remaining: $" + s;
 
 func update_fb(num):
-	$MainMarginContainer/BudgetLabels/FB.text = "Fun Budget Remaining: $" + str("%0.2f" % num);
+	var s = str("%0.2f" % num);
+	$MainMarginContainer/BudgetLabels/FB.text = "Fun Budget Remaining: $" + s;
+	$MenuMarginContainer/AddTransactionContainer/LabelContainer/ATFB.text = "Fun Budget Remaining: $" + s;
 
 func update_fp(num):
-	$MainMarginContainer/BudgetLabels/FP.text = "Fun Pool: $" + str("%0.2f" % num);
+	var s = str("%0.2f" % num);
+	$MainMarginContainer/BudgetLabels/FP.text = "Fun Pool: $" + s;
+	$MenuMarginContainer/AddTransactionContainer/LabelContainer/ATFP.text = "Living Pool: $" + s;
 
 func _on_add_transaction_pressed():
 	$MainMarginContainer.hide();
