@@ -60,6 +60,6 @@ func _on_menu_close_button_pressed() -> void:
 func _on_confirm_transaction_button_pressed() -> void:
 	var transaction = Transaction.new();
 	transaction.transaction_name = $MenuMarginContainer/AddTransactionContainer/VBoxContainer/TransactionNameLineEdit.text
-	transaction.transaction_amount = $MenuMarginContainer/AddTransactionContainer/VBoxContainer/TransactionAmount.value;
+	transaction.transaction_amount = $MenuMarginContainer/AddTransactionContainer/VBoxContainer/TransactionAmount.real_value;
 	transaction.transaction_category = Main.BudgetCategory.get($MenuMarginContainer/AddTransactionContainer/VBoxContainer/CategoryOptionButton.get_item_text($MenuMarginContainer/AddTransactionContainer/VBoxContainer/CategoryOptionButton.selected));
 	add_transaction.emit(transaction);

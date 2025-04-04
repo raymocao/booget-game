@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://7n2d3r8r2cg7"]
 
 [ext_resource type="Script" uid="uid://h2qd0obe8jcf" path="res://hud.gd" id="1_64ctp"]
-[ext_resource type="Script" uid="uid://bsuqpa54nqyrr" path="res://transaction_amount_line_edit.gd" id="2_8sq4i"]
+[ext_resource type="Script" uid="uid://cokuux14hxsyf" path="res://transaction_amount.gd" id="2_64ctp"]
 
 [node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_64ctp")
@@ -130,10 +130,14 @@ layout_mode = 2
 size_flags_vertical = 4
 placeholder_text = "Item Name"
 
-[node name="TransactionAmount" type="LineEdit" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
+[node name="TransactionAmount" type="SpinBox" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
 layout_mode = 2
+max_value = 10000.0
+step = 0.01
+allow_lesser = true
+prefix = "$"
 select_all_on_focus = true
-script = ExtResource("2_8sq4i")
+script = ExtResource("2_64ctp")
 
 [node name="CategoryOptionButton" type="OptionButton" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
 layout_mode = 2
