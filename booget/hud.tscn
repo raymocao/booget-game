@@ -91,6 +91,7 @@ size_flags_horizontal = 8
 text = "Cancel"
 
 [node name="MenuMarginContainer" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -166,7 +167,7 @@ text = "Fun Budget Remaining:"
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 28
-text = "Fun Pool Remaining:"
+text = "Fun Pool:"
 
 [node name="MenuCloseButton" type="Button" parent="MenuMarginContainer"]
 layout_mode = 2

@@ -4,20 +4,22 @@ extends Node
 
 enum BudgetCategory {LIVING, FUN}
 
+@onready var player = $Player;
+@onready var hud = $HUD;
 
 func _ready():
 	start_game();
 
 func _on_hud_add_transaction(transaction) -> void:
-	$Player.add_transaction(transaction.transaction_amount, transaction.transaction_category);
-	$HUD.update_lb($Player.living_budget_remaining);
-	$HUD.update_fb($Player.fun_budget_remaining);
-	$HUD.update_fp($Player.fun_pool);
+	player.add_transaction(transaction.transaction_amount, transaction.transaction_category);
+	hud.update_lb(player.living_budget_remaining);
+	hud.update_fb(player.fun_budget_remaining);
+	hud.update_fp(player.fun_pool);
 
 func start_game():
-	$HUD.update_lb($Player.living_budget_remaining);
-	$HUD.update_fb($Player.fun_budget_remaining);
-	$HUD.update_fp($Player.fun_pool);
+	hud.update_lb(player.living_budget_remaining);
+	hud.update_fb(player.fun_budget_remaining);
+	hud.update_fp(player.fun_pool);
 
 func _on_hud_end_game() -> void:
 	#save game
