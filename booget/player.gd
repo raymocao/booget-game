@@ -1,22 +1,24 @@
 extends Node
 
-@export var living_budget = 1500.00;
-@export var fun_budget = 1500.00;
+var budget_config:BudgetConfig = BudgetConfig.new();
+var data:PlayerData = PlayerData.new(); 
 
-var living_budget_remaining = living_budget;
-var fun_budget_remaining = fun_budget;
-var fun_pool = 0;
+func setup_default():
+	data.living_budget_remaining = budget_config.living_budget;
+	data.fun_budget_remaining = budget_config.fun_budget;
 
-func add_transaction(amount, category):
-	if (category == Main.BudgetCategory.LIVING):
-		living_budget_remaining -= amount;
-	elif (category == Main.BudgetCategory.FUN):
-		fun_budget_remaining -= amount;
+func add_transaction(transaction:Transaction):
+	if (transaction.transaction_category == Main.BudgetCategory.LIVING):
+		data.living_budget_remaining -= transaction.transaction_amount;
+	elif (transaction.transaction_category == Main.BudgetCategory.FUN):
+		data.fun_budget_remaining -= transaction.transaction_amount;
 	
-	if (living_budget_remaining < 0):
-		fun_budget_remaining += living_budget_remaining;
-		living_budget_remaining = 0;
+	if (data.living_budget_remaining < 0):
+		data.fun_budget_remaining += data.living_budget_remaining;
+		data.living_budget_remaining = 0;
 	
-	if (fun_budget_remaining < 0):
-		fun_pool += fun_budget_remaining;
-		fun_budget_remaining = 0;
+	if (data.fun_budget_remaining < 0):
+		data.fun_pool += data.fun_budget_remaining;
+		data.fun_budget_remaining = 0;
+	
+	data.transactions.append(transaction);

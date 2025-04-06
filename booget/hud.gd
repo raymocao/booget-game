@@ -55,7 +55,7 @@ func update_fb(num):
 func update_fp(num):
 	var s = str("%0.2f" % num);
 	mainFP.text = "Fun Pool: $" + s;
-	menuAddTransactionFP.text = "Living Pool: $" + s;
+	menuAddTransactionFP.text = "Fun Pool: $" + s;
 
 func _on_add_transaction_pressed():
 	mainContainer.hide();
