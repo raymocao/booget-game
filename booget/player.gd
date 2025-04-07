@@ -6,6 +6,8 @@ var data:PlayerData = PlayerData.new();
 func setup_default():
 	data.living_budget_remaining = budget_config.living_budget;
 	data.fun_budget_remaining = budget_config.fun_budget;
+	data.fun_pool = 0.0;
+	data.transactions.clear();
 
 func add_transaction(transaction:Transaction):
 	if (transaction.transaction_category == Main.BudgetCategory.LIVING):

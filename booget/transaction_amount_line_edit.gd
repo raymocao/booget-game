@@ -20,6 +20,9 @@ func _ready() -> void:
 	
 	text = (prefix + format_string + suffix) % real_value
 
+func update_text() -> void:
+	text = (prefix + format_string + suffix) % real_value
+
 func _on_text_changed(value: String) -> void:
 	var caret = caret_column
 	if (value.length() == 1 && value != prefix):

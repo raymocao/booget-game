@@ -23,3 +23,5 @@ script = ExtResource("6_7mycd")
 [connection signal="ready" from="." to="." method="_on_ready"]
 [connection signal="add_transaction" from="HUD" to="." method="_on_hud_add_transaction"]
 [connection signal="end_game" from="HUD" to="." method="_on_hud_end_game"]
+[connection signal="reset_game" from="HUD" to="." method="_on_hud_reset_game"]
+[connection signal="update_config" from="HUD" to="." method="_on_hud_update_config"]

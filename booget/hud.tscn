@@ -7,6 +7,7 @@
 script = ExtResource("1_64ctp")
 
 [node name="MainMarginContainer" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -41,6 +42,12 @@ size_flags_horizontal = 4
 size_flags_vertical = 8
 text = "Add Transaction
 "
+
+[node name="Settings" type="Button" parent="MainMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Settings"
 
 [node name="Exit" type="Button" parent="MainMarginContainer"]
 layout_mode = 2
@@ -91,7 +98,6 @@ size_flags_horizontal = 8
 text = "Cancel"
 
 [node name="MenuMarginContainer" type="MarginContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -103,6 +109,7 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="AddTransactionContainer" type="Control" parent="MenuMarginContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -169,6 +176,147 @@ size_flags_vertical = 8
 theme_override_font_sizes/font_size = 28
 text = "Fun Pool:"
 
+[node name="SettingsContainer" type="Control" parent="MenuMarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MenuMarginContainer/SettingsContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -198.0
+offset_top = -91.5
+offset_right = 198.0
+offset_bottom = 91.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LivingBudgetContainer" type="HBoxContainer" parent="MenuMarginContainer/SettingsContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="LivingBudgetLabel" type="Label" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/LivingBudgetContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Living Budget:"
+
+[node name="LivingBudget" type="LineEdit" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/LivingBudgetContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+select_all_on_focus = true
+script = ExtResource("2_8sq4i")
+metadata/_custom_type_script = "uid://bsuqpa54nqyrr"
+
+[node name="FunBudgetContainer" type="HBoxContainer" parent="MenuMarginContainer/SettingsContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="FunBudgetLabel" type="Label" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/FunBudgetContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Fun Budget:"
+
+[node name="FunBudget" type="LineEdit" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/FunBudgetContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+select_all_on_focus = true
+script = ExtResource("2_8sq4i")
+metadata/_custom_type_script = "uid://bsuqpa54nqyrr"
+
+[node name="RollValueContainer" type="HBoxContainer" parent="MenuMarginContainer/SettingsContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="RollValueLabel" type="Label" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/RollValueContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Roll Value:"
+
+[node name="RollValue" type="LineEdit" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/RollValueContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+select_all_on_focus = true
+script = ExtResource("2_8sq4i")
+metadata/_custom_type_script = "uid://bsuqpa54nqyrr"
+
+[node name="MonthlyIncomeContainer" type="HBoxContainer" parent="MenuMarginContainer/SettingsContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 2
+
+[node name="MonthlyIncomeLabel" type="Label" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/MonthlyIncomeContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Monthly Income:"
+
+[node name="MonthlyIncome" type="LineEdit" parent="MenuMarginContainer/SettingsContainer/VBoxContainer/MonthlyIncomeContainer"]
+custom_minimum_size = Vector2(160, 0)
+layout_mode = 2
+size_flags_horizontal = 8
+select_all_on_focus = true
+script = ExtResource("2_8sq4i")
+metadata/_custom_type_script = "uid://bsuqpa54nqyrr"
+
+[node name="SettingsSaveButton" type="Button" parent="MenuMarginContainer/SettingsContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Save"
+
+[node name="ResetButton" type="Button" parent="MenuMarginContainer/SettingsContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -50.5
+offset_top = -31.0
+offset_right = 50.5
+grow_horizontal = 2
+grow_vertical = 0
+text = "Reset Game"
+
+[node name="ResetMarginContainer" type="MarginContainer" parent="MenuMarginContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ResetContainer" type="VBoxContainer" parent="MenuMarginContainer/ResetMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="WarningLabel" type="Label" parent="MenuMarginContainer/ResetMarginContainer/ResetContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "WARNING! "
+
+[node name="ResetLabel" type="Label" parent="MenuMarginContainer/ResetMarginContainer/ResetContainer"]
+layout_mode = 2
+text = "This action cannot be undone."
+
+[node name="ResetHContainer" type="HBoxContainer" parent="MenuMarginContainer/ResetMarginContainer/ResetContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ResetConfirm" type="Button" parent="MenuMarginContainer/ResetMarginContainer/ResetContainer/ResetHContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+text = "Reset"
+
+[node name="ResetCancel" type="Button" parent="MenuMarginContainer/ResetMarginContainer/ResetContainer/ResetHContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+text = "Cancel"
+
 [node name="MenuCloseButton" type="Button" parent="MenuMarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -176,8 +324,13 @@ size_flags_vertical = 0
 text = "X"
 
 [connection signal="pressed" from="MainMarginContainer/Add Transaction" to="." method="_on_add_transaction_pressed"]
+[connection signal="pressed" from="MainMarginContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainMarginContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="ExitMarginContainer/ExitVContainer/ExitHContainer/ExitConfirm" to="." method="_on_exit_confirm_pressed"]
 [connection signal="pressed" from="ExitMarginContainer/ExitVContainer/ExitHContainer/ExitCancel" to="." method="_on_exit_cancel_pressed"]
 [connection signal="pressed" from="MenuMarginContainer/AddTransactionContainer/VBoxContainer/ConfirmTransactionButton" to="." method="_on_confirm_transaction_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/SettingsContainer/VBoxContainer/SettingsSaveButton" to="." method="_on_settings_save_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/SettingsContainer/ResetButton" to="." method="_on_reset_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/ResetMarginContainer/ResetContainer/ResetHContainer/ResetConfirm" to="." method="_on_reset_confirm_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/ResetMarginContainer/ResetContainer/ResetHContainer/ResetCancel" to="." method="_on_reset_cancel_pressed"]
 [connection signal="pressed" from="MenuMarginContainer/MenuCloseButton" to="." method="_on_menu_close_button_pressed"]
