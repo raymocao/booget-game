@@ -94,6 +94,10 @@ func _on_confirm_transaction_button_pressed() -> void:
 	transaction.transaction_amount = menuAddTransactionAmount.real_value;
 	transaction.transaction_category = Main.BudgetCategory.get(menuAddTransactionCategory.get_item_text(menuAddTransactionCategory.selected));
 	add_transaction.emit(transaction);
+	menuAddTransactionName.text = "";
+	menuAddTransactionAmount.real_value = 0.0;
+	menuAddTransactionAmount.update_text();
+	menuAddTransactionCategory.selected = Main.BudgetCategory.LIVING;
 
 func update_config_hud(config:BudgetConfig):
 	menuSettingsLB.real_value = config.living_budget;
