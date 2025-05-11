@@ -44,7 +44,7 @@ func do_rollovers():
 	
 	player.data.current_day = now_time["day"];
 	player.data.current_weekday = now_time["weekday"];
-	player.data.current_mon = now_time["mon"];
+	player.data.current_month = now_time["month"];
 	player.data.current_year = now_time["year"];
 
 func check_day_rollover(now_time: Dictionary) -> bool:
@@ -84,8 +84,8 @@ func do_week_rollover():
 func do_mon_rollover():
 	player.data.fun_pool += player.data.living_budget_remaining;
 	player.data.fun_pool += player.data.fun_budget_remaining;
-	player.data.living_budget_remaining = player.data.budget_config.living_budget;
-	player.data.fun_budget_remaining = player.data.budget_config.fun_budget;
+	player.data.living_budget_remaining = player.budget_config.living_budget;
+	player.data.fun_budget_remaining = player.budget_config.fun_budget;
 
 func _on_hud_update_config(config: BudgetConfig) -> void:
 	if (config == null):

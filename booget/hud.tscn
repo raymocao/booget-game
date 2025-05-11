@@ -7,7 +7,6 @@
 script = ExtResource("1_64ctp")
 
 [node name="MainMarginContainer" type="MarginContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -98,6 +97,7 @@ size_flags_horizontal = 8
 text = "Cancel"
 
 [node name="MenuMarginContainer" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
