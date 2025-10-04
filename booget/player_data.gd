@@ -9,4 +9,5 @@ extends Resource
 @export var current_weekday:int;
 @export var current_day:int;
 
+@export var current_month_transactions:Array[Transaction];
 @export var transactions:Array[Transaction];

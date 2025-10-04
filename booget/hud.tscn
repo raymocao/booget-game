@@ -42,6 +42,12 @@ size_flags_vertical = 8
 text = "Add Transaction
 "
 
+[node name="Gacha" type="Button" parent="MainMarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Gacha"
+
 [node name="Settings" type="Button" parent="MainMarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -109,45 +115,44 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="AddTransactionContainer" type="Control" parent="MenuMarginContainer"]
-visible = false
 layout_mode = 2
 mouse_filter = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MenuMarginContainer/AddTransactionContainer"]
+[node name="AddTransactionVBoxContainer" type="VBoxContainer" parent="MenuMarginContainer/AddTransactionContainer"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -448.0
-offset_top = -39.0
-offset_right = -68.0
-offset_bottom = 97.0
-grow_horizontal = 2
+offset_left = 103.0
+offset_top = -76.0
+offset_right = 483.0
+offset_bottom = 100.0
 grow_vertical = 2
 
-[node name="AddTransactionLabel" type="Label" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
+[node name="AddTransactionLabel" type="Label" parent="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 text = "Add Transaction"
 horizontal_alignment = 1
 
-[node name="TransactionNameLineEdit" type="LineEdit" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
+[node name="TransactionNameLineEdit" type="LineEdit" parent="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 placeholder_text = "Item Name"
 
-[node name="TransactionAmount" type="LineEdit" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
+[node name="TransactionAmount" type="LineEdit" parent="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer"]
 layout_mode = 2
 select_all_on_focus = true
 script = ExtResource("2_8sq4i")
 
-[node name="CategoryOptionButton" type="OptionButton" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
+[node name="CategoryOptionButton" type="OptionButton" parent="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer"]
 layout_mode = 2
 allow_reselect = true
 
-[node name="ConfirmTransactionButton" type="Button" parent="MenuMarginContainer/AddTransactionContainer/VBoxContainer"]
+[node name="SubcategoryOptionButton" type="OptionButton" parent="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer"]
+layout_mode = 2
+
+[node name="ConfirmTransactionButton" type="Button" parent="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -160,12 +165,28 @@ offset_top = 77.0
 offset_right = 948.0
 offset_bottom = 530.0
 
-[node name="ATLB" type="Label" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer"]
+[node name="ATLBContainer" type="HBoxContainer" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ATLBButton" type="Button" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer/ATLBContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="ATLB" type="Label" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer/ATLBContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Living Budget Remaining:"
 
-[node name="ATFB" type="Label" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer"]
+[node name="ATFBContainer" type="HBoxContainer" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="ATFBButton" type="Button" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer/ATFBContainer"]
+layout_mode = 2
+text = "<"
+
+[node name="ATFB" type="Label" parent="MenuMarginContainer/AddTransactionContainer/LabelContainer/ATFBContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 28
 text = "Fun Budget Remaining:"
@@ -174,9 +195,28 @@ text = "Fun Budget Remaining:"
 layout_mode = 2
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 28
-text = "Fun Pool:"
+text = "   Fun Pool:"
+
+[node name="BreakdownContainer" type="VBoxContainer" parent="MenuMarginContainer/AddTransactionContainer"]
+visible = false
+layout_mode = 0
+offset_left = 103.0
+offset_top = 159.0
+offset_right = 305.0
+offset_bottom = 243.0
+
+[node name="BreakdownLabel" type="Label" parent="MenuMarginContainer/AddTransactionContainer/BreakdownContainer"]
+layout_mode = 2
+text = "Living Budget Breakdown:
+"
+
+[node name="BreakdownButton" type="Button" parent="MenuMarginContainer/AddTransactionContainer/BreakdownContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+text = "OK"
 
 [node name="SettingsContainer" type="Control" parent="MenuMarginContainer"]
+visible = false
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MenuMarginContainer/SettingsContainer"]
@@ -317,6 +357,10 @@ layout_mode = 2
 size_flags_horizontal = 8
 text = "Cancel"
 
+[node name="GachaContainer" type="Control" parent="MenuMarginContainer"]
+visible = false
+layout_mode = 2
+
 [node name="MenuCloseButton" type="Button" parent="MenuMarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
@@ -324,11 +368,16 @@ size_flags_vertical = 0
 text = "X"
 
 [connection signal="pressed" from="MainMarginContainer/Add Transaction" to="." method="_on_add_transaction_pressed"]
+[connection signal="pressed" from="MainMarginContainer/Gacha" to="." method="_on_gacha_pressed"]
 [connection signal="pressed" from="MainMarginContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainMarginContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="ExitMarginContainer/ExitVContainer/ExitHContainer/ExitConfirm" to="." method="_on_exit_confirm_pressed"]
 [connection signal="pressed" from="ExitMarginContainer/ExitVContainer/ExitHContainer/ExitCancel" to="." method="_on_exit_cancel_pressed"]
-[connection signal="pressed" from="MenuMarginContainer/AddTransactionContainer/VBoxContainer/ConfirmTransactionButton" to="." method="_on_confirm_transaction_button_pressed"]
+[connection signal="item_selected" from="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer/CategoryOptionButton" to="." method="_on_category_option_button_item_selected"]
+[connection signal="pressed" from="MenuMarginContainer/AddTransactionContainer/AddTransactionVBoxContainer/ConfirmTransactionButton" to="." method="_on_confirm_transaction_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/AddTransactionContainer/LabelContainer/ATLBContainer/ATLBButton" to="." method="_on_atlb_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/AddTransactionContainer/LabelContainer/ATFBContainer/ATFBButton" to="." method="_on_atfb_button_pressed"]
+[connection signal="pressed" from="MenuMarginContainer/AddTransactionContainer/BreakdownContainer/BreakdownButton" to="." method="_on_breakdown_button_pressed"]
 [connection signal="pressed" from="MenuMarginContainer/SettingsContainer/VBoxContainer/SettingsSaveButton" to="." method="_on_settings_save_button_pressed"]
 [connection signal="pressed" from="MenuMarginContainer/SettingsContainer/ResetButton" to="." method="_on_reset_button_pressed"]
 [connection signal="pressed" from="MenuMarginContainer/ResetMarginContainer/ResetContainer/ResetHContainer/ResetConfirm" to="." method="_on_reset_confirm_pressed"]

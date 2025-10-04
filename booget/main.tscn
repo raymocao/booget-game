@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://b3gmndtlcxk5t"]
+[gd_scene load_steps=7 format=3 uid="uid://b3gmndtlcxk5t"]
 
 [ext_resource type="Script" uid="uid://bxo45f0o54pm7" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://dh26juk1xyje2" path="res://player.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://ysg1km478rp3" path="res://subcategories.gd" id="1_lquwl"]
 [ext_resource type="PackedScene" uid="uid://7n2d3r8r2cg7" path="res://hud.tscn" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://danggnhjmwdmx" path="res://saver_loader.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://du8ox6tgf80ud" path="res://budget_config.gd" id="6_7mycd"]
@@ -13,6 +14,9 @@ script = ExtResource("1_h2yge")
 script = ExtResource("1_ig7tw")
 
 [node name="HUD" parent="." instance=ExtResource("2_0xm2m")]
+
+[node name="Subcategories" type="Node" parent="."]
+script = ExtResource("1_lquwl")
 
 [node name="SaverLoader" type="Node" parent="."]
 script = ExtResource("5_lquwl")

@@ -2,6 +2,7 @@ class_name SaverLoader
 extends Node
 
 @onready var player = $"../Player";
+@onready var subcategories = $"../Subcategories";
 
 func save_config():
 	var config = ConfigFile.new();
@@ -36,3 +37,15 @@ func load_game():
 		player.setup_default();
 	else:
 		player.data = data;
+	
+	var subcategories_config = ConfigFile.new();
+	
+	var subcategories_err = subcategories_config.load("res://living-subcategories.ini");
+	if subcategories_err != OK:
+		return;
+	
+	var fun_subcategories_config = subcategories_config.get_value("fun", "categories");
+	fun_subcategories_config.append("Spill Over");
+	
+	subcategories.living_subcategories = subcategories_config.get_value("living", "categories");
+	subcategories.fun_subcategories = fun_subcategories_config;

@@ -5,6 +5,7 @@ extends Node
 enum BudgetCategory {LIVING, FUN}
 
 @onready var player = $Player;
+@onready var subcategories:Subcategories = $Subcategories;
 @onready var hud = $HUD;
 @onready var saver_loader = $SaverLoader;
 
@@ -26,6 +27,8 @@ func _on_hud_end_game() -> void:
 	get_tree().quit();
 
 func update_all_hud():
+	hud.set_subcategories(subcategories);
+	hud.set_current_month_transactions(player.data.current_month_transactions);
 	hud.update_lb(player.data.living_budget_remaining);
 	hud.update_fb(player.data.fun_budget_remaining);
 	hud.update_fp(player.data.fun_pool);
@@ -86,6 +89,7 @@ func do_mon_rollover():
 	player.data.fun_pool += player.data.fun_budget_remaining;
 	player.data.living_budget_remaining = player.budget_config.living_budget;
 	player.data.fun_budget_remaining = player.budget_config.fun_budget;
+	player.data.current_month_transactions.clear();
 
 func _on_hud_update_config(config: BudgetConfig) -> void:
 	if (config == null):
