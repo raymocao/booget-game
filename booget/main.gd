@@ -73,7 +73,7 @@ func check_mon_rollover(now_time: Dictionary) -> bool:
 	if (player.data.current_year < now_year):
 		return true;
 	
-	if (player.data.current_year < now_month):
+	if (player.data.current_month < now_month):
 		return true;
 		
 	return false;
