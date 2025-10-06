@@ -40,7 +40,7 @@ func load_game():
 	
 	var subcategories_config = ConfigFile.new();
 	
-	var subcategories_err = subcategories_config.load("res://living-subcategories.ini");
+	var subcategories_err = subcategories_config.load("res://subcategories.ini");
 	if subcategories_err != OK:
 		return;
 	

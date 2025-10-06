@@ -13,7 +13,7 @@ var fun_transaction_dict:Dictionary;
 @onready var mainLB = $MainMarginContainer/BudgetLabels/LB;
 @onready var mainFB = $MainMarginContainer/BudgetLabels/FB;
 @onready var mainFP = $MainMarginContainer/BudgetLabels/FP;
-@onready var mainAddTransaction = $MainMarginContainer/"Add Transaction";
+@onready var mainAddTransaction = $"MainMarginContainer/ButtonContainer/Add Transaction"
 
 @onready var exitContainer = $ExitMarginContainer;
 
@@ -39,6 +39,10 @@ var fun_transaction_dict:Dictionary;
 @onready var menuSettingsMI = $MenuMarginContainer/SettingsContainer/VBoxContainer/MonthlyIncomeContainer/MonthlyIncome;
 
 @onready var menuGachaContainer = $MenuMarginContainer/GachaContainer;
+
+@onready var menuTasksContainer = $MenuMarginContainer/TasksContainer;
+
+@onready var menuCollectionContainer = $MenuMarginContainer/CollectionContainer;
 
 @onready var menuResetContainer = $MenuMarginContainer/ResetMarginContainer;
 
@@ -84,6 +88,8 @@ func hide_menus():
 	menuAddTransactionContainer.hide();
 	menuSettingsContainer.hide();
 	menuGachaContainer.hide();
+	menuTasksContainer.hide();
+	menuCollectionContainer.hide();
 	menuResetContainer.hide();
 
 func populate_categories():
@@ -226,3 +232,13 @@ func _on_atfb_button_pressed() -> void:
 func _on_breakdown_button_pressed() -> void:
 	menuAddTransactionVBoxContainer.show();
 	menuBreakdownContainer.hide();
+
+func _on_tasks_pressed() -> void:
+	mainContainer.hide();
+	menuContainer.show();
+	menuTasksContainer.show();
+
+func _on_collection_pressed() -> void:
+	mainContainer.hide();
+	menuContainer.show();
+	menuCollectionContainer.show();

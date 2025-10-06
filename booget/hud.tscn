@@ -35,20 +35,52 @@ layout_mode = 2
 size_flags_horizontal = 0
 text = "Fun Pool: "
 
-[node name="Add Transaction" type="Button" parent="MainMarginContainer"]
+[node name="ButtonContainer" type="HBoxContainer" parent="MainMarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 8
-text = "Add Transaction
-"
 
-[node name="Gacha" type="Button" parent="MainMarginContainer"]
+[node name="Gacha" type="Button" parent="MainMarginContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
 text = "Gacha"
 
-[node name="Settings" type="Button" parent="MainMarginContainer"]
+[node name="Spacer1" type="Control" parent="MainMarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Tasks" type="Button" parent="MainMarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+text = "Tasks"
+
+[node name="Spacer2" type="Control" parent="MainMarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add Transaction" type="Button" parent="MainMarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Add Transaction
+"
+
+[node name="Spacer3" type="Control" parent="MainMarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Collection" type="Button" parent="MainMarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Collection"
+
+[node name="Spacer4" type="Control" parent="MainMarginContainer/ButtonContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Settings" type="Button" parent="MainMarginContainer/ButtonContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
@@ -361,15 +393,25 @@ text = "Cancel"
 visible = false
 layout_mode = 2
 
+[node name="TasksContainer" type="Control" parent="MenuMarginContainer"]
+visible = false
+layout_mode = 2
+
+[node name="CollectionContainer" type="Control" parent="MenuMarginContainer"]
+visible = false
+layout_mode = 2
+
 [node name="MenuCloseButton" type="Button" parent="MenuMarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
 text = "X"
 
-[connection signal="pressed" from="MainMarginContainer/Add Transaction" to="." method="_on_add_transaction_pressed"]
-[connection signal="pressed" from="MainMarginContainer/Gacha" to="." method="_on_gacha_pressed"]
-[connection signal="pressed" from="MainMarginContainer/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="MainMarginContainer/ButtonContainer/Gacha" to="." method="_on_gacha_pressed"]
+[connection signal="pressed" from="MainMarginContainer/ButtonContainer/Tasks" to="." method="_on_tasks_pressed"]
+[connection signal="pressed" from="MainMarginContainer/ButtonContainer/Add Transaction" to="." method="_on_add_transaction_pressed"]
+[connection signal="pressed" from="MainMarginContainer/ButtonContainer/Collection" to="." method="_on_collection_pressed"]
+[connection signal="pressed" from="MainMarginContainer/ButtonContainer/Settings" to="." method="_on_settings_pressed"]
 [connection signal="pressed" from="MainMarginContainer/Exit" to="." method="_on_exit_pressed"]
 [connection signal="pressed" from="ExitMarginContainer/ExitVContainer/ExitHContainer/ExitConfirm" to="." method="_on_exit_confirm_pressed"]
 [connection signal="pressed" from="ExitMarginContainer/ExitVContainer/ExitHContainer/ExitCancel" to="." method="_on_exit_cancel_pressed"]
