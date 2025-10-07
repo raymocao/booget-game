@@ -15,6 +15,7 @@ func _ready():
 func _on_hud_add_transaction(transaction) -> void:
 	player.add_transaction(transaction);
 	update_all_hud();
+	saver_loader.save_player();
 
 func start_game():
 	saver_loader.load_game();
@@ -49,6 +50,7 @@ func do_rollovers():
 	player.data.current_weekday = now_time["weekday"];
 	player.data.current_month = now_time["month"];
 	player.data.current_year = now_time["year"];
+	saver_loader.save_player();
 
 func check_day_rollover(now_time: Dictionary) -> bool:
 	if (check_mon_rollover(now_time) or check_week_rollover(now_time)):
