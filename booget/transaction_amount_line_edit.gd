@@ -40,7 +40,8 @@ func _on_text_submitted(value: String) -> void:
 
 func _on_text_entered() -> void:
 	text = (prefix + format_string + suffix) % real_value
-	caret_column = text.length()
+	caret_column = text.length();
+	select_all();
 
 func _on_focus_exited() -> void:
 	text = (prefix + format_string + suffix) % real_value
