@@ -100,6 +100,7 @@ func _on_hud_update_config(config: BudgetConfig) -> void:
 	
 	player.budget_config = config;
 	hud.update_config_hud(player.budget_config);
+	saver_loader.save_config();
 
 func _on_hud_reset_game() -> void:
 	player.setup_default();
