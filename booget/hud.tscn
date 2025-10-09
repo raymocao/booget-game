@@ -7,6 +7,7 @@
 script = ExtResource("1_64ctp")
 
 [node name="MainMarginContainer" type="MarginContainer" parent="."]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -135,7 +136,6 @@ size_flags_horizontal = 8
 text = "Cancel"
 
 [node name="MenuMarginContainer" type="MarginContainer" parent="."]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -147,6 +147,7 @@ theme_override_constants/margin_right = 12
 theme_override_constants/margin_bottom = 12
 
 [node name="AddTransactionContainer" type="Control" parent="MenuMarginContainer"]
+visible = false
 layout_mode = 2
 mouse_filter = 2
 
@@ -390,8 +391,37 @@ size_flags_horizontal = 8
 text = "Cancel"
 
 [node name="GachaContainer" type="Control" parent="MenuMarginContainer"]
-visible = false
 layout_mode = 2
+
+[node name="RollLabel" type="Label" parent="MenuMarginContainer/GachaContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+
+[node name="RollButton" type="Button" parent="MenuMarginContainer/GachaContainer"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -31.0
+offset_right = 21.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 20
+text = "Roll!"
 
 [node name="TasksContainer" type="Control" parent="MenuMarginContainer"]
 visible = false

@@ -4,6 +4,15 @@ extends Node
 
 enum BudgetCategory {LIVING, FUN}
 
+enum ITEM_RARITY {COMMON, UNCOMMON, RARE, LEGENDARY}
+
+const COMMON_WEIGHT = 600;
+const UNCOMMON_WEIGHT = 300;
+const RARE_WEIGHT = 95;
+const LEGENDARY_WEIGHT = 5;
+
+const SHINY_CHANCE = 1000;
+
 @onready var player = $Player;
 @onready var subcategories:Subcategories = $Subcategories;
 @onready var hud = $HUD;
@@ -106,3 +115,27 @@ func _on_hud_reset_game() -> void:
 	player.setup_default();
 	update_all_hud();
 	saver_loader.save_player();
+
+func generate_item_rarity() -> ITEM_RARITY:
+	var weights = [COMMON_WEIGHT, UNCOMMON_WEIGHT, RARE_WEIGHT, LEGENDARY_WEIGHT];
+	
+	var random = RandomNumberGenerator.new();
+	var num = random.rand_weighted(weights);
+	if (num == 0):
+		return ITEM_RARITY.COMMON;
+	elif (num == 1):
+		return ITEM_RARITY.UNCOMMON;
+	elif (num == 2):
+		return ITEM_RARITY.RARE;
+	else:
+		return ITEM_RARITY.LEGENDARY;
+
+func generate_shininess() -> bool:
+	var weights = [1, SHINY_CHANCE];
+	
+	var random = RandomNumberGenerator.new();
+	var num = random.rand_weighted(weights);
+	if (num == 0):
+		return true;
+	else:
+		return false;

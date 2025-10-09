@@ -216,7 +216,7 @@ func _on_gacha_pressed() -> void:
 	menuContainer.show();
 	menuGachaContainer.show();
 
-func _on_category_option_button_item_selected(index: int) -> void:
+func _on_category_option_button_item_selected(_index: int) -> void:
 	populate_subcategories();
 
 func _on_atlb_button_pressed() -> void:
