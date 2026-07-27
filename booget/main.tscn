@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b3gmndtlcxk5t"]
+[gd_scene format=3 uid="uid://b3gmndtlcxk5t"]
 
 [ext_resource type="Script" uid="uid://bxo45f0o54pm7" path="res://main.gd" id="1_h2yge"]
 [ext_resource type="Script" uid="uid://dh26juk1xyje2" path="res://player.gd" id="1_ig7tw"]
@@ -7,21 +7,27 @@
 [ext_resource type="Script" uid="uid://danggnhjmwdmx" path="res://saver_loader.gd" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://du8ox6tgf80ud" path="res://budget_config.gd" id="6_7mycd"]
 
-[node name="Main" type="Node"]
+[node name="Main" type="Node" unique_id=30282961]
 script = ExtResource("1_h2yge")
 
-[node name="Player" type="Node" parent="."]
+[node name="Player" type="Node" parent="." unique_id=1464820288]
 script = ExtResource("1_ig7tw")
 
-[node name="HUD" parent="." instance=ExtResource("2_0xm2m")]
+[node name="HUD" parent="." unique_id=1208336593 instance=ExtResource("2_0xm2m")]
 
-[node name="Subcategories" type="Node" parent="."]
+[node name="AddTransactionContainer" parent="HUD/MenuMarginContainer" index="0"]
+visible = true
+
+[node name="GachaContainer" parent="HUD/MenuMarginContainer" index="3"]
+visible = false
+
+[node name="Subcategories" type="Node" parent="." unique_id=1281036118]
 script = ExtResource("1_lquwl")
 
-[node name="SaverLoader" type="Node" parent="."]
+[node name="SaverLoader" type="Node" parent="." unique_id=798550390]
 script = ExtResource("5_lquwl")
 
-[node name="BudgetConfig" type="Node" parent="."]
+[node name="BudgetConfig" type="Node" parent="." unique_id=341690922]
 script = ExtResource("6_7mycd")
 
 [connection signal="ready" from="." to="." method="_on_ready"]
@@ -29,3 +35,5 @@ script = ExtResource("6_7mycd")
 [connection signal="end_game" from="HUD" to="." method="_on_hud_end_game"]
 [connection signal="reset_game" from="HUD" to="." method="_on_hud_reset_game"]
 [connection signal="update_config" from="HUD" to="." method="_on_hud_update_config"]
+
+[editable path="HUD"]
